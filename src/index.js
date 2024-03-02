@@ -1,5 +1,6 @@
 
 const baseUrl = "https://platzi-avo.vercel.app";
+const appNode = document.querySelector('#app');
 // web api
 fetch(`${baseUrl}/api/avo`)
 .then(res => res.json())
@@ -21,5 +22,5 @@ fetch(`${baseUrl}/api/avo`)
         allElements.push(container);
     });
     //append elements from allElements
-    document.body.append(...allElements);
+    appNode.append(...allElements);
 });
