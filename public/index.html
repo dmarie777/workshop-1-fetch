@@ -13,7 +13,7 @@
       Make sure to update it with your GitHub Page URL. https://<your-username>.github.io/<your-repo-name>
 
       More about config options:
-      - https://www.snowpack.dev/reference/configuration#buildoptions.baseurl
+      - https://www.snowpack.dev/reference/configuration#buildoptions.baseurl 
     -->
     <link
       rel="stylesheet"
@@ -31,24 +31,23 @@
 
       Start modyfing from here.
     -->
-    <div class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p
-          class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
-        >
-          mariel
-        </p>
-        <h3
-          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-        >
-          Avocado Store
-        </h3>
+    <section class="first-box py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-wrapper text-center">
+        <svg>
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+            Avocado Store
+          </text>
+      </svg>
+      </div>
+    </section>
+    <section class="second-box">
         <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 mx-auto">
           Description...
         </p>
-      </div>
-      <div id="app"></div>
-    </div>
+    </section>
+    <section >
+      <div class="text-wrapper " id="app"></div>
+    </section>
 
     <!-- Add more scripts here -->
     <script type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
