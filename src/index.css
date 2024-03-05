@@ -1,3 +1,105 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    color: hsl(0 0% 100%);
+}
+
+section.first-box {
+    background: hsl(0 0% 100%);
+    height: 200vh;
+}
+
+section .text-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    position: sticky ;
+    top: 0;
+    overflow: hidden;
+    perspective: 100vh;
+
+}
+
+section.second-box {
+    z-index: 2;
+    color: hsl(0 0% 100%);
+    height: 100vh;
+    width: 100%;
+    background: hsl(0 0% 0%);
+    position: sticky;
+
+}
+
+section.second-box p {
+    color: white;
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    opacity: 0;
+}
+
+section .text-wrapper svg{
+    --opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 0.4;
+    translate: -50% -50%;
+    overflow: hidden;
+}
+svg text {
+    font-size: clamp(2rem, 6vw + 1rem, 6rem);
+    font-weight: 600;
+}
+
+section .text-wrapper {
+    overflow: visible;
+    perspective: 100vh;
+}
+
+@supports (animation-timeline: scroll()) {
+    section {
+        view-timeline-name: --section;
+    }
+
+    section .text-wrapper svg {
+        animation: blow-out both ease-in, fade-in both ease-in;
+        animation-timeline: --section;
+        animation-range: exit-crossing 10% exit 0%, exit-crossing 10% exit-crossing 25%;
+    }
+
+    section.second-box p {
+        animation: fade-in both linear, fade-out both linear;
+        animation-timeline: --section;
+        animation-range: entry 10% entry 35%, exit 0% exit 25%;
+    }
+
+    @keyframes fade-in {
+        to {
+            opacity: var(--opacity, 0.8);
+        }
+    }
+    @keyframes fade-out {
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes blow-out {
+        0%, 95% {
+            background: transparent;
+        }
+        to {
+            transform: translate3d(0.50ch, 0, 99vh );
+            background: rgb(0, 0, 0);
+        }
+    }
+}
