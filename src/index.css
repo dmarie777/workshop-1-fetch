@@ -62,7 +62,32 @@ svg text {
 #app {
     background: hsl(0 0 100%);
     color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
 }
+
+#app div {
+    margin: 5px auto;
+}
+
+#app div div {
+    border: 1px solid grey;
+    max-width: 35%;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: background-color linear 0.3s;
+}
+
+#app div div:hover {
+    background-color: black;
+    color: white;
+}
+
 
 @supports (animation-timeline: scroll()) {
     section {
