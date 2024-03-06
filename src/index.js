@@ -1,6 +1,18 @@
 
 const baseUrl = "https://platzi-avo.vercel.app";
 const appNode = document.querySelector('#app');
+//function to format prices using the internacionalization API
+const formatPrice = (price) => {
+    const newPrice = new Intl.NumberFormat(
+        'en-EN',
+        {
+            style: 'currency',
+            currency:'USD'
+        }
+    ).format(price)
+    return newPrice;
+}
+
 // web api
 fetch(`${baseUrl}/api/avo`)
 .then(res => res.json())
@@ -11,9 +23,9 @@ fetch(`${baseUrl}/api/avo`)
         const image = document.createElement('img');
         image.src = `${baseUrl}${element.image}`;
         const title = document.createElement('h2');
-        title.textContent = element.price;
+        title.textContent = element.name;
         const price = document.createElement('div');
-        price.textContent = element.name;
+        price.textContent = formatPrice(element.price);
         //create container
         const container = document.createElement('div');
         //append elements
