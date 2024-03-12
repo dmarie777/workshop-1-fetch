@@ -1,6 +1,14 @@
 
 const baseUrl = "https://platzi-avo.vercel.app";
 const appNode = document.querySelector('#app');
+
+//Adding event delegation
+appNode.addEventListener('click', (event) => {
+    if(event.target.nodeName === 'H2') {
+        window.alert('hola');
+    }
+})
+
 //function to format prices using the internacionalization API
 const formatPrice = (price) => {
     const newPrice = new Intl.NumberFormat(
